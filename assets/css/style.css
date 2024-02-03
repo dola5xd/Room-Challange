@@ -101,7 +101,6 @@ section .container {
 }
 section .container .slide {
   width: 100%;
-  height: 384px;
   position: relative;
 }
 section .container .slide img {
@@ -113,7 +112,7 @@ section .container .slide img {
 section .container .slide .navigator {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 5px;
   width: 115px;
   height: 48px;
   display: flex;
@@ -152,6 +151,7 @@ section .container .text p {
   transition: 0.5s;
   min-height: 175px;
   font-size: 0.9em;
+  min-height: 200px;
 }
 section .container .text button {
   padding: 10px 0px;
