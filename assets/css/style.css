@@ -15,9 +15,12 @@
   font-family: "League Spartan", sans-serif;
   -webkit-user-drag: none;
 }
-html,
-body {
+html {
   overflow-x: hidden;
+}
+body {
+  overflow: hidden;
+  height: 100vh;
 }
 header {
   position: absolute;
@@ -107,7 +110,6 @@ section .container .slide img {
   width: 100%;
   min-height: 384px;
   transition: 0.5s;
-  cursor: pointer;
 }
 section .container .slide .navigator {
   position: absolute;
@@ -167,6 +169,7 @@ section .container .text button {
   transition: 0.7s;
   width: 100%;
   font-size: 1em;
+  outline: none;
 }
 section .container .text button svg {
   transition: 0.7s;
@@ -174,12 +177,15 @@ section .container .text button svg {
 section .container .text button:hover svg {
   transform: translateX(40px);
 }
+#about {
+  height: 40vh;
+}
 #about .container {
   min-height: auto;
 }
 #about .container .img {
   width: 100%;
-  height: 266px;
+  height: auto;
 }
 #about .container .img img {
   width: 100%;
@@ -199,11 +205,190 @@ section .container .text button:hover svg {
   font-size: 0.85em;
   line-height: 25px;
 }
-footer .img {
+.light .img {
   width: 100%;
   height: 266px;
 }
-footer .img img {
+.light .img img {
   width: 100%;
   min-height: 266px;
+}
+
+/* desktop devices */
+
+@media (min-width: 1016px) {
+  body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  header {
+    top: 0;
+  }
+  header nav {
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 5vw;
+    padding: 45px;
+  }
+  header nav .navi .ham {
+    display: none;
+  }
+  header nav .navi .logo {
+    transform: translate(0);
+  }
+  header nav .links {
+    display: flex;
+    position: static;
+    transform: translate(0);
+    opacity: 1;
+    background-color: transparent;
+    padding: 0;
+  }
+  header nav .links span {
+    display: none;
+  }
+  header nav .links ul li {
+    opacity: 1;
+    font-size: 18px;
+    color: var(--white);
+    font-weight: 500;
+    position: relative;
+  }
+  header nav .links ul li::after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    background-color: var(--white);
+    width: 50%;
+    height: 4px;
+    border-radius: 7px;
+    transform: translateX(50%);
+    opacity: 0;
+    transition: 0.7s;
+  }
+  header nav .links ul li:hover:after {
+    opacity: 1;
+  }
+  .home {
+    height: 70vh;
+  }
+  section .container {
+    flex-direction: row;
+    min-height: auto;
+    height: 70vh;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  section .container .text {
+    width: 50%;
+    padding: 140px 68px 0px 0;
+    height: 70vh;
+  }
+  section .container .text h1 {
+    font-size: 2.2em;
+  }
+  section .container .text p {
+    margin: 30px 0;
+    font-size: 1em;
+    min-height: 175px;
+  }
+  section .container .slide {
+    height: 70vh;
+  }
+  section .container .slide img {
+    height: 70vh;
+  }
+  section .container .slide .navigator {
+    left: 100%;
+    bottom: 0;
+    height: 65px;
+    width: 150px;
+  }
+  section .container .navigator span svg {
+    scale: 1;
+  }
+
+  #about .container {
+    align-items: start;
+    gap: 0;
+    max-width: 65vw;
+    height: 30vh;
+  }
+  #about .container .img {
+    width: calc(65vw / 2);
+    height: 30vh;
+  }
+  #about .container .img img {
+    min-height: 30vh;
+  }
+  #about .container .text {
+    min-width: calc(calc((65vw / 3)));
+    padding: 50px 22px 0;
+    margin: 0;
+    max-height: 30vh;
+  }
+  #about .container .text h1 {
+    font-size: 1.1em;
+  }
+  #about .container .text p {
+    margin: 0;
+    margin-top: 15px;
+    font-size: 12px;
+  }
+  .light {
+    width: calc(100vw - 65vw);
+    height: 30vh;
+  }
+  .light .img img {
+    width: 100%;
+    min-height: 30vh;
+  }
+}
+
+section,
+header {
+  display: none;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#loader,
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 100px;
+  transition: 0.5s;
+}
+#loader span:nth-child(1) {
+  width: 150px;
+  height: 150px;
+  display: block;
+  border-radius: 100%;
+  border: 15px solid var(--Black);
+  border-right-color: var(--darkGray);
+  animation: load 2s infinite linear;
+  cursor: default;
+}
+
+#loader span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  cursor: default;
+}
+#loader span i {
+  font-size: 1.5em;
+  letter-spacing: 5px;
+}
+@keyframes load {
+  100% {
+    rotate: 360deg;
+  }
 }
