@@ -649,12 +649,9 @@ function responsive() {
       e.style.opacity = 1;
       loaderParent.style.opacity = 0;
       setTimeout(() => {
-        e.style.display = "block";
+        e.classList.remove("loader");
         loaderParent.style.display = "none";
-        document.body.style.flexDirection = "row";
-        document.body.style.alignItems = "unset";
-        document.body.style.justifyContent = "unset";
-        document.body.style.gap = 0;
+        document.body.classList.remove("loader");
       }, 700);
     });
   }, 10000);
